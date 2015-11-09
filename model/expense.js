@@ -3,11 +3,19 @@ var mongoose = require('mongoose');
 
 
 db.expenseSchema.methods.insertExpense = function ( cb ) {
-  console.log('Entered here');
-  this.save( function(err) {
+  this.save( function (err) {
     cb(err);
   });
 }
+
+
+db.expenseSchema.methods.getExpenses = function ( cb ) {
+  console.log('Getting expenses...');
+  this.find( {}, function (err, docs) {
+    cb(err, docs);
+  });
+}
+
 
 var ExpenseModel = mongoose.model('expense', db.expenseSchema);
 
