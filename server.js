@@ -35,7 +35,8 @@ app.post('/expenses', function (req,res) {
 
 app.get('/expenses', function (req,res) {
 
-  ExpenseModel.find({},{_id : 0, __v: 0}, function(err, data) {
+  
+  ExpenseModel.find(req.query,{_id : 0, __v: 0}, function(err, data) {
     console.log('Getting expenses...');
     if ( err ) {
       console.error(err);
@@ -44,6 +45,7 @@ app.get('/expenses', function (req,res) {
       res.send(data);
     }
   });
+  // might want to refactor to include this funciton within expense.js
   
 });
 
