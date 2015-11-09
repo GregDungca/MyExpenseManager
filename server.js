@@ -35,16 +35,8 @@ app.post('/expenses', function (req,res) {
 
 app.get('/expenses', function (req,res) {
 
-  // var expense = new ExpenseModel({});
-  // expense.getExpenses( function(err, data) {
-  //   if ( err ) {
-  //     console.error(err);
-  //     res.status(404).send(); 
-  //   } else {
-  //     res.send(data);
-  //   }
-  // })
   ExpenseModel.find({},{_id : 0, __v: 0}, function(err, data) {
+    console.log('Getting expenses...');
     if ( err ) {
       console.error(err);
       res.status(404).send(); 

@@ -9,12 +9,12 @@ db.expenseSchema.methods.insertExpense = function ( cb ) {
 }
 
 
-db.expenseSchema.methods.getExpenses = function ( cb ) {
-  console.log('Getting expenses...');
-  this.find( {}, function (err, docs) {
-    cb(err, docs);
-  });
-}
+// db.expenseSchema.methods.getExpenses = function ( cb ) {
+//   console.log('Getting expenses...');
+//   this.find( {}, function (err, docs) {
+//     cb(err, docs);
+//   });
+// }
 
 
 var ExpenseModel = mongoose.model('expense', db.expenseSchema);
