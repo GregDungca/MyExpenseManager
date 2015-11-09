@@ -4,11 +4,15 @@ var Schema = mongoose.Schema;
 
 var expenseSchema = new Schema({
   amount: Number,
-  date: { type: Date},
+  day: Number,
+  month: Number,
+  year: Number,
   category: String,
   note: String,
   userID: Number // consider changing to username to reduce complexity?
 });
+
+
 
 
 
