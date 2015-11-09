@@ -2,11 +2,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var db = require('./db.js');
 var ExpenseModel = require('./model/expense.js');
+var logger = require('./middleware/logger.js');
 
 
 var app = express();
-
 app.use(bodyParser.json());
+app.use(logger);
+
 
 app.get('/', function (req,res) {
   res.send('hello world!');
@@ -20,16 +22,19 @@ app.post('/expenses', function (req,res) {
       // on success, respond with success, 201?
       // on failure, response with 404
         // console.log(error)
-
-  var expense = new ExpenseModel(req.body);
-  expense.insertExpense( function(err) {
-    if ( err ) {
-      console.error(err);
-      res.status(404).send(); 
-    } else {
-      res.status(201).send();
-    }
+  req.on('data', function(data) {
+    var expense = new ExpenseModel(JSON.parse(data));
+    expense.insertExpense( function(err) {
+      if ( err ) {
+        console.error(err);
+        res.status(404).send(); 
+      } else {
+        res.status(201).send();
+      }
+    });
   });
+
+  
 
 
 });
