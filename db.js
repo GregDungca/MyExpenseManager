@@ -9,13 +9,22 @@ var expenseSchema = new Schema({
   year: Number,
   category: String,
   note: String,
-  userID: Number // consider changing to username to reduce complexity?
+  username: String // consider using the id from the user table instead?
 });
 
+var userSchema = new Schema({
+  username : String,
+  password : String
+});
 
-
-
+var budgetSchema = new Schema({
+  username : String,
+  month : String,
+  category : String
+});
 
 module.exports = { 
-  expenseSchema : expenseSchema
+  expenseSchema : expenseSchema,
+  userSchema : userSchema,
+  budgetSchema : budgetSchema
 }

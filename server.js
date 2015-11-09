@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var db = require('./db.js');
 var ExpenseModel = require('./model/expense.js');
+var UserModel = require('./model/user.js');
 var logger = require('./middleware/logger.js');
 
 
@@ -36,7 +37,7 @@ app.post('/expenses', function (req,res) {
 app.get('/expenses', function (req,res) {
 
   
-  ExpenseModel.find(req.query,{_id : 0, __v: 0}, function(err, data) {
+  ExpenseModel.find(req.query,{__v: 0}, function(err, data) {
     console.log('Getting expenses...');
     if ( err ) {
       console.error(err);
@@ -50,6 +51,15 @@ app.get('/expenses', function (req,res) {
 });
 
 app.post('/users', function (req,res) {
+  var user = new UserModel(req.body);
+  user.insertUser( function(err) {
+    if ( err ) {
+      console.error(err);
+      res.status(404).send(); 
+    } else {
+      res.status(201).send();
+    }
+  });
 
 });
 
