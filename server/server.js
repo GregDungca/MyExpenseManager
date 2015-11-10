@@ -9,15 +9,15 @@ var logger = require('./middleware/logger.js');
 
 var app = express();
 app.use(bodyParser.json());
+app.use(logger);
 // app.use(bodyParser.urlencoded({extended: true}));
 
+app.use(express.static('../client'));
 
-app.use(logger);
 
-
-app.get('/', function (req,res) {
-  res.send('hello world!');
-});
+// app.get('/', function (req,res) {
+//   res.send();
+// });
 
 app.post('/expenses', function (req,res) {
 
