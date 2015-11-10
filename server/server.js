@@ -37,7 +37,7 @@ app.post('/api/expenses', function (req,res) {
 app.get('/api/expenses', function (req,res) {
 
   
-  ExpenseModel.find(req.query,{__v: 0}, function(err, data) {
+  ExpenseModel.find(req.query,{_id: 0, __v: 0}, function(err, data) {
     console.log('Getting expenses...');
     if ( err ) {
       console.error(err);

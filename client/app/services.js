@@ -8,7 +8,6 @@ angular.module('services', [])
     });
   }
 
-
   var sendExpense = function(expense) {
     return $http({
       method: 'POST',
@@ -21,7 +20,6 @@ angular.module('services', [])
     getExpenses : getExpenses,
     sendExpense : sendExpense
   }
-
 
 });
   

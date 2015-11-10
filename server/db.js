@@ -3,6 +3,7 @@ mongoose.connect('mongodb://localhost/expenseManager');
 var Schema = mongoose.Schema;
 
 var expenseSchema = new Schema({
+  item: String,
   amount: Number,
   day: Number,
   month: Number,

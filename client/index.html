@@ -15,14 +15,41 @@
 <body ng-controller='ExpensesCtrl'>
   <h1>{{ 'My Expense Manager' }}</h1>
   <form ng-submit='sendExpense()'>
-    <input type='text' ng-model='expense.item' placeholder='Item'></input>
-    <input type='text' ng-model='expense.amount' placeholder='$'></input>
-    <input type='text' ng-model='expense.month' placeholder='Nov'></input>
-    <input type='text' ng-model='expense.day' placeholder='18'></input>
-    <input type='text' ng-model='expense.year' placeholder='2015'></input>
-    <input type='text' ng-model='expense.notes' placeholder='Notes'></input>
-    <input type='submit'></input>
+    <input type='text' ng-model='submittedExpense.item' placeholder='Item'></input>
+    <input type='text' ng-model='submittedExpense.amount' placeholder='$'></input>
+    <input type='text' ng-model='submittedExpense.month' placeholder='Nov'></input>
+    <input type='text' ng-model='submittedExpense.day' placeholder='18'></input>
+    <input type='text' ng-model='submittedExpense.year' placeholder='2015'></input>
+    <input type='text' ng-model='submittedExpense.note' placeholder='Notes'></input>
+    <input type='text' ng-model='submittedExpense.category' placeholder='Category'></input>
+    <input type='submit' value='Add'></input>
   </form>
+
+  <button ng-click='getExpenses()'>View Expenses</button>
+
+  <table>
+<!--     <th>
+      <td>Item</td>
+      <td>Amount</td>
+      <td>Month</td>
+      <td>Day</td>
+      <td>Year</td>
+      <td>Note</td>
+      <td>Category</td>
+    </th> -->
+    <tr ng-repeat='expense in expenses'>
+      <td>{{ expense.item }}</td>
+      <td>{{ expense.amount }}</td>
+      <td>{{ expense.month }}</td>
+      <td>{{ expense.day }}</td>
+      <td>{{ expense.year }}</td>
+      <td>{{ expense.note }}</td>
+      <td>{{ expense.category }}</td>
+    </tr>
+  </table>
+
+
+
   <p> {{ expense.item }}</p>
 </body>
 
