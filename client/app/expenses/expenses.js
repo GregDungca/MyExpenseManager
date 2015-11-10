@@ -1,10 +1,20 @@
-var expensesApp = angular.module('expensesApp', []);// what does this do exactly?
+var expenses = angular.module('expenses', []);
 
-expensesApp.controller('ExpensesCtrl', function ($scope) {
+expenses.controller('ExpensesCtrl', function ($scope, Expenses) {
+  $scope.expense = {};
 
-  var submitExpense = function () {
+  $scope.sendExpense = function () {
     // call the associated handler within services.js
 
-
+    Expenses.sendExpense($scope.expense)
+      .then( function (res) {
+        // success
+        console.log('Success: ' + res);
+      }, function (res) {
+        // fail
+        console.error(res);
+      });
+    
   }
+
 });
