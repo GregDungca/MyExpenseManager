@@ -1,16 +1,20 @@
 <!doctype html>
-<html ng-app>
+<html ng-app='expensesApp'>
 
 <head>
   <title>My Expense Manager</title>
   <script src='./bower_components/angular/angular.min.js'></script>
-  <script src='./'></script>
-  <!-- need to fill in the above script tag -->
+
   <!-- <link rel='stylesheet' href='./bower_components/bootstrap/dist/css/bootstrap.min.css'> -->
+
+  <script src='./app/expenses.js'></script>
 </head>
 
-<body>
+<body ng-controller='ExpensesCtrl'>
   <p>This is a {{ 'test.' }}</p>
+  <form>
+    <input></input>
+  </form>
 </body>
 
 </html>
