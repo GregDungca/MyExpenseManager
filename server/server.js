@@ -19,7 +19,7 @@ app.use(express.static('../client'));
 //   res.send();
 // });
 
-app.post('/expenses', function (req,res) {
+app.post('/api/expenses', function (req,res) {
 
   var expense = new ExpenseModel(req.body);
   expense.insertExpense( function(err) {
@@ -34,7 +34,7 @@ app.post('/expenses', function (req,res) {
 
 });
 
-app.get('/expenses', function (req,res) {
+app.get('/api/expenses', function (req,res) {
 
   
   ExpenseModel.find(req.query,{__v: 0}, function(err, data) {
@@ -50,7 +50,7 @@ app.get('/expenses', function (req,res) {
   
 });
 
-app.post('/users', function (req,res) {
+app.post('/api/users', function (req,res) {
   var user = new UserModel(req.body);
   user.insertUser( function(err) {
     if ( err ) {

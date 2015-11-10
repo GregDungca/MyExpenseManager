@@ -1,13 +1,13 @@
-POST /expenses
+POST /api/expenses
 
-curl -i http://127.0.0.1:3000/expenses -d '{"amount":2.00, "category": "Food", "note": "must verify", "userID": 1}' -H "Content-Type: application/json"
+curl -i http://127.0.0.1:3000/api/expenses -d '{"amount":2.00, "category": "Food", "note": "must verify", "userID": 1}' -H "Content-Type: application/json"
 
-GET /expenses
+GET /api/expenses
 
-curl -i http://127.0.0.1:3000/expenses
+curl -i http://127.0.0.1:3000/api/expenses
 
-GET /expenses?category=Food
+GET /api//expenses?category=Food
 
-curl -i http://127.0.0.1:3000/expenses?category=Food
+curl -i http://127.0.0.1:3000/api/expenses?category=Food
 
 
