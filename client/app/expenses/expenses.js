@@ -22,7 +22,7 @@ expenses.controller('ExpensesCtrl', function ($scope, Expenses) {
       .then( function (res) {
         // success
         $scope.expenses = res.data;
-        console.dir($scope.expenses)
+        
         console.log('Success: ' + res);
       }, function (res) {
         // fail

@@ -1,0 +1,37 @@
+<div ng-controller='ExpensesCtrl'>
+
+  <form ng-submit='sendExpense()'>
+    <input type='text' ng-model='submittedExpense.item' placeholder='Item'></input>
+    <input type='text' ng-model='submittedExpense.amount' placeholder='$'></input>
+    <input type='text' ng-model='submittedExpense.month' placeholder='Nov'></input>
+    <input type='text' ng-model='submittedExpense.day' placeholder='18'></input>
+    <input type='text' ng-model='submittedExpense.year' placeholder='2015'></input>
+    <input type='text' ng-model='submittedExpense.note' placeholder='Notes'></input>
+    <input type='text' ng-model='submittedExpense.category' placeholder='Category'></input>
+    <input type='submit' value='Add'></input>
+  </form>
+
+  <button ng-click='getExpenses()'>View Expenses</button>
+
+  <table class='table'>
+
+    <tr>
+      <th>Item</th>
+      <th>Amount</th>
+      <th>Month</th>
+      <th>Day</th>
+      <th>Year</th>
+      <th>Note</th>
+      <th>Category</th>
+    </tr>
+    <tr ng-repeat='expense in expenses'>
+      <td>{{ expense.item }}</td>
+      <td>{{ expense.amount }}</td>
+      <td>{{ expense.month }}</td>
+      <td>{{ expense.day }}</td>
+      <td>{{ expense.year }}</td>
+      <td>{{ expense.note }}</td>
+      <td>{{ expense.category }}</td>
+    </tr>
+  </table>
+</div>

@@ -4,53 +4,20 @@
 <head>
   <title>My Expense Manager</title>
   <script src='./bower_components/angular/angular.min.js'></script>
+  <script src='./bower_components/angular-route/angular-route.js'></script>
   <link rel='stylesheet' href='./styles.css'>
 
-  <!-- <link rel='stylesheet' href='./bower_components/bootstrap/dist/css/bootstrap.min.css'> -->
+  <link rel='stylesheet' href='./bower_components/bootstrap/dist/css/bootstrap.min.css'>
   <script src='./app/app.js'></script>
   <script src='./app/services.js'></script>
   <script src='./app/expenses/expenses.js'></script>
 </head>
 
-<body ng-controller='ExpensesCtrl'>
+<body>
   <h1>{{ 'My Expense Manager' }}</h1>
-  <form ng-submit='sendExpense()'>
-    <input type='text' ng-model='submittedExpense.item' placeholder='Item'></input>
-    <input type='text' ng-model='submittedExpense.amount' placeholder='$'></input>
-    <input type='text' ng-model='submittedExpense.month' placeholder='Nov'></input>
-    <input type='text' ng-model='submittedExpense.day' placeholder='18'></input>
-    <input type='text' ng-model='submittedExpense.year' placeholder='2015'></input>
-    <input type='text' ng-model='submittedExpense.note' placeholder='Notes'></input>
-    <input type='text' ng-model='submittedExpense.category' placeholder='Category'></input>
-    <input type='submit' value='Add'></input>
-  </form>
-
-  <button ng-click='getExpenses()'>View Expenses</button>
-
-  <table>
-<!--     <th>
-      <td>Item</td>
-      <td>Amount</td>
-      <td>Month</td>
-      <td>Day</td>
-      <td>Year</td>
-      <td>Note</td>
-      <td>Category</td>
-    </th> -->
-    <tr ng-repeat='expense in expenses'>
-      <td>{{ expense.item }}</td>
-      <td>{{ expense.amount }}</td>
-      <td>{{ expense.month }}</td>
-      <td>{{ expense.day }}</td>
-      <td>{{ expense.year }}</td>
-      <td>{{ expense.note }}</td>
-      <td>{{ expense.category }}</td>
-    </tr>
-  </table>
-
-
-
-  <p> {{ expense.item }}</p>
+  <button><a href='#/expenses'>Add Expense</a></button>
+  <button><a href='#/graphs'>Graphs</a></button>
+  <div ng-view></div>
 </body>
 
 </html>
