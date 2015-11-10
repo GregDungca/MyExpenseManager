@@ -11,15 +11,17 @@
 </head>
 
 <body ng-controller='ExpensesCtrl'>
-  <p>This is a {{ 'test.' }}</p>
+  <h1>{{ 'My Expense Manager' }}</h1>
   <form>
-    <input type='text'></input>
-    <input type='text'></input>
-    <input type='text'></input>
-    <input type='text'></input>
-    <input type='text'></input>
-    <input type='text'></input>
+    <input type='text' ng-model='item'></input>
+    <input type='text' ng-model='amount'></input>
+    <input type='text' ng-model='day'></input>
+    <input type='text' ng-model='month'></input>
+    <input type='text' ng-model='year'></input>
+    <input type='text' ng-model='notes'></input>
+    <input type='submit'></input>
   </form>
+  <p> {{ item }}</p>
 </body>
 
 </html>
