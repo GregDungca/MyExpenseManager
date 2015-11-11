@@ -26,32 +26,18 @@ angular.module('services', [])
   };
 
   var sumPerCategory = function(cb) {
-    var sums = [];
+    // var sums = [];
     // _.each(categories, function(category) {
     //   sums.category = 0;
     // });
-    getExpenses()
-      .then ( function (res) {
-        _.each(categories, function(category){
-          var amount = _.reduce(res.data, function(sum, expense) {
-            if ( expense.category = category ) {
-              return sum + expense.amount;
-            } else {
-              return sum;
-            }
-          }, 0);
-          sums.push({category : category, amount : amount});
-          return sums;
-        });
+    return getExpenses();
 
-      }, function (res) {
-        console.error(res);
-      });
   };
 
   return {
     getExpenses : getExpenses,
     sendExpense : sendExpense,
+    categories : categories,
     sumPerCategory : sumPerCategory
   }
 
