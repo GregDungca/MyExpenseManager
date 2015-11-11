@@ -23,6 +23,12 @@ angular.module('directives', ['d3'])
           $window.onresize = function() {
             scope.$apply();
           };
+          scope.data = [
+            {name: "Food", amount: 300},
+            {name: "Transport", amount: 50},
+            {name: 'Clothes', amount: 50},
+            {name: "Fun", amount: 200}
+          ];
 
           scope.$watch(function() {
             return angular.element($window)[0].innerWidth;
@@ -46,7 +52,7 @@ angular.module('directives', ['d3'])
                   color = d3.scale.category20(),
                   xScale = d3.scale.linear()
                     .domain([0, d3.max(data, function(d) {
-                      return d.score;
+                      return d.amount;
                     })])
                     .range([0, width]);
 
@@ -66,12 +72,12 @@ angular.module('directives', ['d3'])
                     return i * (barHeight + barPadding);
                   })
                   .attr('fill', function(d) {
-                    return color(d.score);
+                    return color(d.amount);
                   })
                   .transition()
                     .duration(1000)
                     .attr('width', function(d) {
-                      return xScale(d.score);
+                      return xScale(d.amount);
                     });
               svg.selectAll('text')
                 .data(data)
@@ -83,7 +89,7 @@ angular.module('directives', ['d3'])
                   })
                   .attr('x', 15)
                   .text(function(d) {
-                    return d.name + " (scored: " + d.score + ")";
+                    return d.name + ' ' + d.amount;
                   });
             }, 200);
           };

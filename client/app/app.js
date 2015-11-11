@@ -1,4 +1,4 @@
-angular.module('expensesApp', ['expenses', 'services', 'ngRoute', 'd3', 'directives'])
+angular.module('expensesApp', ['ui.bootstrap','expenses', 'services', 'ngRoute', 'd3', 'directives'])
   .config(['$routeProvider',
     function ($routeProvider) {
       $routeProvider.

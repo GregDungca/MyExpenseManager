@@ -5,8 +5,8 @@
   <title>My Expense Manager</title>
   <script src='./bower_components/angular/angular.min.js'></script>
   <script src='./bower_components/angular-route/angular-route.js'></script>
+  <script src='./bower_components/angular-bootstrap/ui-bootstrap.min.js'></script>
   <link rel='stylesheet' href='./styles.css'>
-
   <link rel='stylesheet' href='./bower_components/bootstrap/dist/css/bootstrap.min.css'>
   <script src='./app/app.js'></script>
   <script src='./app/services.js'></script>
@@ -17,6 +17,7 @@
 
 <body>
   <h1>{{ 'My Expense Manager' }}</h1>
+
   <button><a href='#/expenses'>Add Expense</a></button>
   <button><a href='#/graphs'>Graphs</a></button>
   <div ng-view></div>
