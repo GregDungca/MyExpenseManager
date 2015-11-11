@@ -25,22 +25,25 @@ angular.module('services', [])
     });
   };
 
-  var sumPerCategory = function() {
-    var sums = {};
-    _.each(categories, function(category) {
-      sums.category = 0;
-    });
+  var sumPerCategory = function(cb) {
+    var sums = [];
+    // _.each(categories, function(category) {
+    //   sums.category = 0;
+    // });
     getExpenses()
-      .then ( function (res) ) {
+      .then ( function (res) {
         _.each(categories, function(category){
-          _.reduce(res.data, function(sum, expense) {
+          var amount = _.reduce(res.data, function(sum, expense) {
             if ( expense.category = category ) {
               return sum + expense.amount;
             } else {
               return sum;
             }
           }, 0);
+          sums.push({category : category, amount : amount});
+          return sums;
         });
+
       }, function (res) {
         console.error(res);
       });

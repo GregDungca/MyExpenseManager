@@ -1,6 +1,6 @@
 angular.module('directives', ['d3'])
-.directive('d3Bars', ['$window', '$timeout', 'd3Service', 
-  function($window, $timeout, d3Service) {
+.directive('d3Bars', ['$window', '$timeout', 'd3Service', 'Expenses',
+  function ($window, $timeout, d3Service, Expenses) {
     return {
       restrict: 'A',
       scope: {
@@ -10,7 +10,7 @@ angular.module('directives', ['d3'])
       },
       link: function(scope, ele, attrs) {
         d3Service.d3().then(function(d3) {
-
+          // Expenses.sumPerCategory()
           var renderTimeout;
           var margin = parseInt(attrs.margin) || 20,
               barHeight = parseInt(attrs.barHeight) || 20,
@@ -23,13 +23,16 @@ angular.module('directives', ['d3'])
           $window.onresize = function() {
             scope.$apply();
           };
-          scope.data = [
-            {category: "Food", amount: 300},
-            {category: "Transport", amount: 50},
-            {category: 'Clothes', amount: 50},
-            {category: "Fun", amount: 200},
-            {category: "Other", amount: 200}
-          ];
+          scope.data = Expenses.sumPerCategory();
+          debugger;
+          // scope.data = [
+          //   {category: "Food", amount: 300},
+          //   {category: "Transport", amount: 50},
+          //   {category: 'Clothes', amount: 50},
+          //   {category: "Fun", amount: 200},
+          //   {category: "Other", amount: 200}
+          // ];
+
 
           scope.$watch(function() {
             return angular.element($window)[0].innerWidth;
