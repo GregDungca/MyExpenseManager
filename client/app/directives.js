@@ -24,10 +24,11 @@ angular.module('directives', ['d3'])
             scope.$apply();
           };
           scope.data = [
-            {name: "Food", amount: 300},
-            {name: "Transport", amount: 50},
-            {name: 'Clothes', amount: 50},
-            {name: "Fun", amount: 200}
+            {category: "Food", amount: 300},
+            {category: "Transport", amount: 50},
+            {category: 'Clothes', amount: 50},
+            {category: "Fun", amount: 200},
+            {category: "Other", amount: 200}
           ];
 
           scope.$watch(function() {
@@ -89,7 +90,7 @@ angular.module('directives', ['d3'])
                   })
                   .attr('x', 15)
                   .text(function(d) {
-                    return d.name + ' ' + d.amount;
+                    return d.category + ' ' + d.amount;
                   });
             }, 200);
           };
