@@ -18,11 +18,18 @@
 </head>
 
 <body>
-  <h1>{{ 'My Expense Manager' }}</h1>
+  <!-- <nav class="navbar navbar-inverse navbar-fixed-top"></nav> -->
+  
+  <div container-fluid>
+    
+    <h1>{{ 'My Expense Manager' }}</h1>
+  </div>
+
+
 
   <button><a href='#/expenses'>Add Expense</a></button>
   <button><a href='#/graphs'>Graphs</a></button>
-  <div ng-view></div>
+  <div container-fluid ng-view></div>
 </body>
 
 </html>

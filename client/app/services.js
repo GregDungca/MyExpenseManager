@@ -26,10 +26,7 @@ angular.module('services', [])
   };
 
   var sumPerCategory = function(cb) {
-    // var sums = [];
-    // _.each(categories, function(category) {
-    //   sums.category = 0;
-    // });
+
     return getExpenses();
 
   };

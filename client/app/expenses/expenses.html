@@ -3,24 +3,11 @@
   <form ng-submit='sendExpense()'>
     <input type='text' ng-model='submittedExpense.item' placeholder='Item'></input>
     <input type='text' ng-model='submittedExpense.amount' placeholder='$'></input>
-    <input type='text' ng-model='submittedExpense.month' placeholder='Nov'></input>
-    <input type='text' ng-model='submittedExpense.day' placeholder='18'></input>
-    <input type='text' ng-model='submittedExpense.year' placeholder='2015'></input>
+    <input type='text' ng-model='submittedExpense.month' placeholder='Month'></input>
+    <input type='text' ng-model='submittedExpense.day' placeholder='Day'></input>
+    <input type='text' ng-model='submittedExpense.year' placeholder='Year'></input>
     <input type='text' ng-model='submittedExpense.note' placeholder='Notes'></input>
     <input type='text' ng-model='submittedExpense.category' placeholder='Category'></input>
-<!--     <div class="btn-group" uib-dropdown uib-keyboard-nav>
-        <button id="simple-btn-keyboard-nav" type="button" class="btn btn-primary" uib-dropdown-toggle>
-            Category <span class="caret"></span>
-        </button>
-        <ul class="uib-dropdown-menu" role="menu" aria-labelledby="simple-btn-keyboard-nav">
-            <li role="menuitem"><a href="#">Food</a></li>
-            <li role="menuitem"><a href="#">Transport</a></li>
-            <li role="menuitem"><a href="#">Fun</a></li>
-            <li role="menuitem"><a href="#">Clothes</a></li>
-            <li role="menuitem"><a href="#">Phone</a></li>
-            <li role="menuitem"><a href="#">Other</a></li>
-        </ul>
-    </div> -->
     <input type='submit' value='Add'></input>
   </form>
 
@@ -31,18 +18,18 @@
     <tr>
       <th>Item</th>
       <th>Amount</th>
-      <th>Month</th>
-      <th>Day</th>
-      <th>Year</th>
-      <th>Note</th>
+      <th>Date</th>
+<!--       <th>Day</th>
+      <th>Year</th> -->
+      <th>Notes</th>
       <th>Category</th>
     </tr>
     <tr ng-repeat='expense in expenses'>
       <td>{{ expense.item }}</td>
-      <td>{{ expense.amount }}</td>
-      <td>{{ expense.month }}</td>
-      <td>{{ expense.day }}</td>
-      <td>{{ expense.year }}</td>
+      <td>{{ '$' + expense.amount }}</td>
+      <td>{{ expense.month + '/' + expense.day + '/' + expense.year }}</td>
+<!--       <td>{{ expense.day }}</td>
+      <td>{{ expense.year }}</td> -->
       <td>{{ expense.note }}</td>
       <td>{{ expense.category }}</td>
     </tr>
