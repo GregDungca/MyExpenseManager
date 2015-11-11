@@ -20,16 +20,17 @@
 <body>
   <!-- <nav class="navbar navbar-inverse navbar-fixed-top"></nav> -->
   
-  <div container-fluid>
+  <div class='container-fluid'>
     
     <h1>{{ 'My Expense Manager' }}</h1>
+    <button class='btn'><a href='#/expenses'>Add Expense</a></button>
+    <button class='btn'><a href='#/graphs'>Graphs</a></button>
   </div>
 
 
 
-  <button><a href='#/expenses'>Add Expense</a></button>
-  <button><a href='#/graphs'>Graphs</a></button>
-  <div container-fluid ng-view></div>
+ 
+  <div class='container-fluid' ng-view></div>
 </body>
 
 </html>
