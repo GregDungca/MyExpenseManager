@@ -1,4 +1,4 @@
-# Press Release
+# README
 
 **My Expense Manager** provides an *elegant* and *simple* interface that provides the functionality to easily manage one's day to day expenses. 
 
